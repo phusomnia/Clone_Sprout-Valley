@@ -1,6 +1,7 @@
 import pygame
 from settings import *
 from player import Player
+
 class Level:
     ##################################################
     def __init__(self):
@@ -15,11 +16,9 @@ class Level:
         self.setup()
     ##################################################
     def setup(self):
-        pos = (640,360)
-        group = self.all_sprites
-        self.player = Player(pos, group)
+        self.player = Player((640,360), self.all_sprites)
     ##################################################
     def run_game(self, dt):
         self.display_surface.fill('yellow')
         self.all_sprites.draw(self.display_surface)
-        self.all_sprites.update()
+        self.all_sprites.update(dt)
