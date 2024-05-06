@@ -18,8 +18,9 @@ class Player(pygame.sprite.Sprite):
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = 200
     ##################################################
-    def animate(self):
-        self.frame_index += 
+    def animate(self, dt):
+        self.frame_index += 4 * dt
+        self.image = self.animation[self.animations][self.frame_index]
     ##################################################
     def import_asserts(self):
         self.animations = {'left': [],'up': [],'down': [],'right': [],
